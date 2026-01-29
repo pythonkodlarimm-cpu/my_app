@@ -16,7 +16,8 @@ jobs:
       - name: Sistem paketleri
         run: |
           sudo apt update
-          sudo apt install -y python3 python3-pip git zip unzip \
+          sudo apt install -y \
+            python3 python3-pip git zip unzip \
             openjdk-17-jdk \
             build-essential ccache \
             libncurses5 libstdc++6 \
@@ -30,10 +31,11 @@ jobs:
       - name: APK oluştur
         run: |
           export PATH=$PATH:$HOME/.local/bin
+          cd my_app
           buildozer android debug
 
       - name: APK yukle
         uses: actions/upload-artifact@v4
         with:
           name: kivy-apk
-          path: bin/*.apk
+          path: my_app/bin/*.apk
