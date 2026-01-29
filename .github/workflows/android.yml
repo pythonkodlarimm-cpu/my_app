@@ -31,11 +31,10 @@ jobs:
       - name: APK oluştur
         run: |
           export PATH=$PATH:$HOME/.local/bin
-          cd my_app
           buildozer android debug
 
       - name: APK yukle
         uses: actions/upload-artifact@v4
         with:
           name: kivy-apk
-          path: my_app/bin/*.apk
+          path: bin/*.apk
