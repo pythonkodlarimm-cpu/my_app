@@ -1,0 +1,39 @@
+name: Build Kivy APK
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+
+    steps:
+      - name: Repo indir
+        uses: actions/checkout@v4
+
+      - name: Sistem paketleri
+        run: |
+          sudo apt update
+          sudo apt install -y python3 python3-pip git zip unzip \
+            openjdk-17-jdk \
+            build-essential ccache \
+            libncurses5 libstdc++6 \
+            libffi-dev libssl-dev
+
+      - name: Buildozer kur
+        run: |
+          pip3 install --user buildozer
+          pip3 install --user cython==0.29.36
+
+      - name: APK oluştur
+        run: |
+          export PATH=$PATH:$HOME/.local/bin
+          buildozer android debug
+
+      - name: APK yukle
+        uses: actions/upload-artifact@v4
+        with:
+          name: kivy-apk
+          path: bin/*.apk
