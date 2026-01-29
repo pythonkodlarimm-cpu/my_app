@@ -28,6 +28,14 @@ jobs:
           pip3 install --user buildozer
           pip3 install --user cython==0.29.36
 
+      - name: Android SDK lisanslarini kabul et
+        run: |
+          yes | $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager --licenses
+          $ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager \
+            "platform-tools" \
+            "platforms;android-33" \
+            "build-tools;33.0.2"
+
       - name: APK oluştur
         run: |
           export PATH=$PATH:$HOME/.local/bin
