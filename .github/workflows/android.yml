@@ -22,7 +22,7 @@ jobs:
       - name: Android SDK kur
         uses: android-actions/setup-android@v3
 
-      - name: Android SDK paketleri ve lisanslar
+      - name: Android SDK paketleri
         run: |
           yes | sdkmanager --licenses
           sdkmanager \
@@ -47,6 +47,8 @@ jobs:
       - name: APK oluştur
         run: |
           export PATH=$PATH:$HOME/.local/bin
+          export ANDROID_HOME=/usr/local/lib/android/sdk
+          export ANDROID_SDK_ROOT=/usr/local/lib/android/sdk
           buildozer android debug
 
       - name: APK yukle
