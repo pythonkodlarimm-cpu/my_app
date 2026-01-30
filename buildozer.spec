@@ -54,18 +54,17 @@ android.wakelock = False
 android.keyboard_mode = system
 
 # ==================================================
-# BUILDOZER AYARLARI
+# BUILDOZER AYARLARI (KESİN)
 # ==================================================
 [buildozer]
 log_level = 2
 warn_on_root = 1
 
-# GitHub Actions + Android için stabil ayarlar
 android.accept_sdk_license = True
 android.build_tools_version = 33.0.2
 
 # ==================================================
-# ⚠️ ASLA EKLEME (Cloud build için yanlış)
+# ⚠️ ASLA EKLEME (Cloud build için YANLIŞ)
 # ==================================================
 # android.sdk_path =
 # android.ndk_path =
