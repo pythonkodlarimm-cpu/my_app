@@ -13,7 +13,7 @@ source.dir = .
 source.include_exts = py,kv,json,txt,md,ttf
 
 # ==================================================
-# #15 — İYİLEŞTİRİLMİŞ HARİÇ TUTULAN DİZİNLER
+# HARİÇ TUTULAN DİZİNLER (TEMİZ + GÜVENLİ)
 # ==================================================
 source.exclude_dirs = \
     .git,.github,.gitlab,.svn, \
@@ -24,7 +24,7 @@ source.exclude_dirs = \
     tests,test,testing, \
     docs,doc,examples,example,samples
 
-# Hariç tutulan dosya uzantıları
+# Hariç tutulan uzantılar
 source.exclude_exts = pyc,pyo,log,tmp,bak,swp
 
 # ==================================================
@@ -54,19 +54,23 @@ android.wakelock = False
 android.keyboard_mode = system
 
 # ==================================================
-# BUILDOZER AYARLARI (TEK VE KESİN)
+# BUILDOZER AYARLARI (KESİN)
 # ==================================================
 [buildozer]
 log_level = 2
 warn_on_root = 1
 
-# Lisans + build-tools
+# ✅ Lisansları otomatik kabul et
 android.accept_sdk_license = True
+
+# ✅ SADECE VE SADECE BU
 android.build_tools_version = 33.0.2
 
-# ✅ GITHUB ACTIONS ANDROID SDK YOLU (DOĞRU)
+# 🔒 KRİTİK: Buildozer kendi SDK’sını ASLA kullanmasın
 android.sdk_path = /usr/lib/android-sdk
 
+# ==================================================
 # ❌ ASLA EKLEME
+# ==================================================
 # android.ndk_path =
 # android.ndk_version =
