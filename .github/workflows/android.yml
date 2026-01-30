@@ -44,8 +44,14 @@ jobs:
           pip3 install --user buildozer
           pip3 install --user cython==0.29.36
 
+      - name: Buildozer eski SDK temizle
+        run: |
+          rm -rf ~/.buildozer
+
       - name: APK oluştur
         run: |
+          export ANDROID_HOME=/usr/local/lib/android/sdk
+          export ANDROID_SDK_ROOT=/usr/local/lib/android/sdk
           export PATH=$PATH:$HOME/.local/bin
           buildozer android debug
 
