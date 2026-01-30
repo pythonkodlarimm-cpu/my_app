@@ -22,7 +22,7 @@ jobs:
       - name: Android SDK kur
         uses: android-actions/setup-android@v3
 
-      - name: Android SDK paketleri
+      - name: Android SDK paketleri (SADECE 33.0.2)
         run: |
           yes | sdkmanager --licenses
           sdkmanager \
