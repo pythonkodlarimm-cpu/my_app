@@ -13,12 +13,18 @@ jobs:
       - name: Repo indir
         uses: actions/checkout@v4
 
+      # ===============================
+      # JAVA
+      # ===============================
       - name: Java 17
         uses: actions/setup-java@v4
         with:
           distribution: temurin
           java-version: 17
 
+      # ===============================
+      # ANDROID SDK
+      # ===============================
       - name: Android SDK
         uses: android-actions/setup-android@v3
 
@@ -30,6 +36,9 @@ jobs:
             "platforms;android-33" \
             "build-tools;33.0.2"
 
+      # ===============================
+      # SİSTEM PAKETLERİ
+      # ===============================
       - name: Sistem paketleri
         run: |
           sudo apt update
@@ -39,15 +48,22 @@ jobs:
             libncurses5 libstdc++6 \
             libffi-dev libssl-dev
 
+      # ===============================
+      # BUILDOZER
+      # ===============================
       - name: Buildozer kur
         run: |
           pip3 install --user buildozer
           pip3 install --user cython==0.29.36
 
+      # 🔥 KRİTİK — Buildozer cache + eski SDK temizliği
       - name: Buildozer cache temizle
         run: |
           rm -rf ~/.buildozer
 
+      # ===============================
+      # APK BUILD
+      # ===============================
       - name: APK oluştur
         run: |
           export ANDROID_HOME=/usr/lib/android-sdk
@@ -55,6 +71,9 @@ jobs:
           export PATH=$PATH:$HOME/.local/bin
           buildozer android debug
 
+      # ===============================
+      # APK YÜKLE
+      # ===============================
       - name: APK yükle
         uses: actions/upload-artifact@v4
         with:
