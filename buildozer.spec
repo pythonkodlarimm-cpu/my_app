@@ -60,11 +60,10 @@ android.keyboard_mode = system
 log_level = 2
 warn_on_root = 1
 
-# Lisans + build-tools
 android.accept_sdk_license = True
 android.build_tools_version = 33.0.2
 
-# 🔴 KRİTİK — Buildozer kendi SDK'sını KULLANMASIN
+# 🔴 KRİTİK — Buildozer GitHub Actions SDK’sını kullansın
 android.sdk_path = /usr/local/lib/android/sdk
 
 # ==================================================
