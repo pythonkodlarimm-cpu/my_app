@@ -12,16 +12,20 @@ package.domain = org.aslan
 source.dir = .
 source.include_exts = py,kv,json,txt,md,ttf
 
-# #14 — Hariç tutulan dizinler
+# ==================================================
+# #15 — İYİLEŞTİRİLMİŞ HARİÇ TUTULAN DİZİNLER
+# ==================================================
 source.exclude_dirs = \
-    .git,.github,__pycache__, \
-    venv,.venv, \
-    build,bin,dist, \
-    logs,log,tmp,cache, \
-    tests,test,docs,examples
+    .git,.github,.gitlab,.svn, \
+    __pycache__,.mypy_cache,.pytest_cache, \
+    venv,.venv,env,.env, \
+    build,bin,dist,.buildozer, \
+    logs,log,tmp,temp,cache,.cache, \
+    tests,test,testing, \
+    docs,doc,examples,example,samples
 
 # Hariç tutulan dosya uzantıları
-source.exclude_exts = pyc,pyo,log
+source.exclude_exts = pyc,pyo,log,tmp,bak,swp
 
 # ==================================================
 # SÜRÜM
@@ -56,7 +60,7 @@ android.keyboard_mode = system
 log_level = 2
 warn_on_root = 1
 
-# GitHub Actions + Android uyumlu ayarlar
+# GitHub Actions + Android için stabil ayarlar
 android.accept_sdk_license = True
 android.build_tools_version = 33.0.2
 
