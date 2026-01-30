@@ -54,20 +54,19 @@ android.wakelock = False
 android.keyboard_mode = system
 
 # ==================================================
-# BUILDOZER AYARLARI (KESİN)
+# BUILDOZER AYARLARI (TEK VE KESİN)
 # ==================================================
 [buildozer]
 log_level = 2
 warn_on_root = 1
 
+# Lisans + build-tools
 android.accept_sdk_license = True
 android.build_tools_version = 33.0.2
 
-# 🔴 KRİTİK — Buildozer GitHub Actions SDK’sını kullansın
-android.sdk_path = /usr/local/lib/android/sdk
+# ✅ GITHUB ACTIONS ANDROID SDK YOLU (DOĞRU)
+android.sdk_path = /usr/lib/android-sdk
 
-# ==================================================
-# ⚠️ ASLA EKLEME
-# ==================================================
+# ❌ ASLA EKLEME
 # android.ndk_path =
 # android.ndk_version =
