@@ -12,10 +12,15 @@ package.domain = org.aslan
 source.dir = .
 source.include_exts = py,kv,json,txt,md,ttf
 
-# Hariç tutulacak klasörler
-source.exclude_dirs = tests,bin,build,.git,.github,__pycache__,venv,.venv
+# #14 — Hariç tutulan dizinler
+source.exclude_dirs = \
+    .git,.github,__pycache__, \
+    venv,.venv, \
+    build,bin,dist, \
+    logs,log,tmp,cache, \
+    tests,test,docs,examples
 
-# Hariç tutulacak uzantılar
+# Hariç tutulan dosya uzantıları
 source.exclude_exts = pyc,pyo,log
 
 # ==================================================
@@ -51,12 +56,12 @@ android.keyboard_mode = system
 log_level = 2
 warn_on_root = 1
 
-# GitHub Actions + Android uyumlu
+# GitHub Actions + Android uyumlu ayarlar
 android.accept_sdk_license = True
 android.build_tools_version = 33.0.2
 
 # ==================================================
-# ⚠️ ASLA EKLEME
+# ⚠️ ASLA EKLEME (Cloud build için yanlış)
 # ==================================================
 # android.sdk_path =
 # android.ndk_path =
