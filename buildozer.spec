@@ -11,7 +11,11 @@ package.domain = org.aslan
 # ==================================================
 source.dir = .
 source.include_exts = py,kv,json,txt,md,ttf
-source.exclude_dirs = tests,bin,build,.git,.github,__pycache__,venv
+
+# Hariç tutulacak klasörler
+source.exclude_dirs = tests,bin,build,.git,.github,__pycache__,venv,.venv
+
+# Hariç tutulacak uzantılar
 source.exclude_exts = pyc,pyo,log
 
 # ==================================================
@@ -35,7 +39,6 @@ fullscreen = 1
 # ==================================================
 android.api = 33
 android.minapi = 21
-
 android.permissions = WRITE_EXTERNAL_STORAGE,READ_EXTERNAL_STORAGE
 android.allow_backup = True
 android.wakelock = False
@@ -48,9 +51,7 @@ android.keyboard_mode = system
 log_level = 2
 warn_on_root = 1
 
-# ==================================================
-# GITHUB ACTIONS + ANDROID UYUMLU
-# ==================================================
+# GitHub Actions + Android uyumlu
 android.accept_sdk_license = True
 android.build_tools_version = 33.0.2
 
